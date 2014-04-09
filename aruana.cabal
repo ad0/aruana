@@ -15,7 +15,12 @@ build-type:          Simple
 cabal-version:       >=1.8
 
 executable aruana
-  main-is:             Main.hs
+  main-is:             Aruana.hs
   hs-source-dirs:      src
   -- other-modules:       
+  build-depends:       base ==4.6.*, array
+
+executable pirana
+  main-is:             Pirana.hs
+  hs-source-dirs:      src
   build-depends:       base ==4.6.*

@@ -1,5 +1,9 @@
 module Main where
 
+import OGC.ResGraph
+import OGC.RGParser
+import OGC.OGC
+
 import System.Environment
 import System.Exit
 
@@ -7,11 +11,10 @@ main :: IO ()
 main = getArgs >>= parseArgs >>= analyze
 
 analyze :: [String] -> IO ()
---analyze (r:rs) = analyzeResModel r >> analyzeResModel rs
---  where analyzeResModel res = case parseResModel res of
---                              Left  rg -> putStrLn ("error: " ++ e)
---                              Right _  -> putStrLn "."
-analyze (_:_) = putStrLn "parser not yet implemented" >> die
+analyze (r:rs) = analyzeResModel r >> analyze rs
+  where analyzeResModel res = case parseRGraph res of
+                              Left  e  -> putStrLn ("error: " ++ e)
+                              Right rg -> ogc rg
 analyze [] = return ()
 
 parseArgs :: [String] -> IO [String]
