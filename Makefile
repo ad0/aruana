@@ -1,13 +1,11 @@
-BIN=aruana
 SRC=$(wildcard src/*.hs src/*.x src/*.y)
 
-all: $(BIN)
-
-aruana: $(SRC)
+all: $(SRC)
 	cabal configure
 	cabal build
 	cp dist/build/aruana/aruana .
+	cp dist/build/pirana/pirana .
 
 clean:
-	rm -rf ./aruana
+	rm -rf ./aruana ./pirana
 	cabal clean

@@ -23,4 +23,4 @@ executable aruana
 executable pirana
   main-is:             Pirana.hs
   hs-source-dirs:      src
-  build-depends:       base ==4.6.*, containers, mtl
+  build-depends:       base ==4.6.*, containers, mtl, haskeline
