@@ -14,13 +14,7 @@ category:            Language
 build-type:          Simple
 cabal-version:       >=1.8
 
-executable aruana
-  main-is:             Aruana.hs
+executable Aruana
+  main-is:             Main.hs
   hs-source-dirs:      src
-  -- other-modules:       
-  build-depends:       base ==4.6.*, array
-
-executable pirana
-  main-is:             Pirana.hs
-  hs-source-dirs:      src
-  build-depends:       base ==4.6.*, containers, mtl, haskeline
+  build-depends:       base ==4.6.*, containers
